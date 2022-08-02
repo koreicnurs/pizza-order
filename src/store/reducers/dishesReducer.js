@@ -27,32 +27,4 @@ const dishesReducer = (state = initialState, action) => {
   }
 };
 
-export const getDishes = () => {
-  return async dispatch => {
-
-    try {
-      dispatch(dishesRequest());
-      const response = await axios('https://bn-task-63-default-rtdb.europe-west1.firebasedatabase.app/dishes.json')
-      console.log(response.data);
-      const dishes = Object.keys(response.data).map(d => {
-        return {
-          title: response.data[d].title,
-          price: response.data[d].price,
-          image: response.data[d].image,
-          id: d,
-        };
-      });
-
-      if (response.data) {
-        dispatch(dishesSuccess(dishes));
-      } else {
-        dispatch(dishesSuccess(null));
-      }
-    } catch (error){
-      dispatch(dishesFailure(error));
-      throw error;
-    }
-  };
-};
-
 export default dishesReducer;

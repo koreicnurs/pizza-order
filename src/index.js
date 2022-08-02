@@ -7,11 +7,13 @@ import thunk from "redux-thunk";
 import App from "./App";
 import './index.css';
 import dishesReducer from "./store/reducers/dishesReducer";
+import dishReducer from "./store/reducers/addDishReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     dishesCombine: dishesReducer,
+    addDish: dishReducer,
 });
 
 const store = createStore(
