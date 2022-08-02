@@ -10,6 +10,7 @@ import dishesReducer from "./store/reducers/dishesReducer";
 import dishReducer from "./store/reducers/addDishReducer";
 import deleteDishReducer from "./store/reducers/deleteDishReducer";
 import editDishReducer from "./store/reducers/editDishReducer";
+import makeOrdersReducer from "./store/reducers/makeOrdersReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     addDish: dishReducer,
     deleteDish: deleteDishReducer,
     editDish: editDishReducer,
+    addOrder: makeOrdersReducer,
 });
 
 const store = createStore(
