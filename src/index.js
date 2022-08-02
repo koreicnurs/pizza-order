@@ -8,12 +8,16 @@ import App from "./App";
 import './index.css';
 import dishesReducer from "./store/reducers/dishesReducer";
 import dishReducer from "./store/reducers/addDishReducer";
+import deleteDishReducer from "./store/reducers/deleteDishReducer";
+import editDishReducer from "./store/reducers/editDishReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     dishesCombine: dishesReducer,
     addDish: dishReducer,
+    deleteDish: deleteDishReducer,
+    editDish: editDishReducer,
 });
 
 const store = createStore(

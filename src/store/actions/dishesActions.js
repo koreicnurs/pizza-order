@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosApi from "../../axiosApi";
 
 export const DISHES_REQUEST = 'DISHES_REQUEST';
 export const DISHES_SUCCESS = 'DISHES_SUCCESS';
@@ -13,8 +13,7 @@ export const getDishes = () => {
 
         try {
             dispatch(dishesRequest());
-            const response = await axios('https://bn-task-63-default-rtdb.europe-west1.firebasedatabase.app/dishes.json')
-            console.log(response.data);
+            const response = await axiosApi('/dishes.json')
             const dishes = Object.keys(response.data).map(d => {
                 return {
                     title: response.data[d].title,

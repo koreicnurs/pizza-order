@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import Layout from "./components/UI/Layout/Layout";
 import Dishes from "./containers/Dishes/Dishes";
 import AddDish from "./containers/AddDish/AddDish";
+import EditDish from "./containers/EditDish/EditDish";
 
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Dishes}/>
           <Route path="/add" exact component={AddDish}/>
-          {/*<Route path="/" exact component={Dishes}/>*/}
+          <Route path="/edit/:id" exact component={EditDish}/>
           {/*<Route path="/orders" exact component={}/>*/}
           <Route render={() => <h1>Not Found</h1>}/>
         </Switch>
