@@ -6,11 +6,12 @@ import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import App from "./App";
 import './index.css';
+import dishesReducer from "./store/reducers/dishesReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-
+    dishesCombine: dishesReducer,
 });
 
 const store = createStore(
