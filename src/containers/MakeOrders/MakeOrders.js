@@ -6,12 +6,14 @@ import {getDishes} from "../../store/actions/dishesActions";
 import {addOrder, deleteOrder} from "../../store/actions/makeOrdersActions";
 import {Button} from "@mui/material";
 import {createOrder} from "../../store/actions/ordersActions";
+import {useHistory} from "react-router-dom";
 
 const MakeOrders = () => {
     const dispatch = useDispatch();
     const dishes = useSelector(state => state.dishesCombine.dishes);
     const orders = useSelector(state => state.addOrder.countOrders);
     const loading = useSelector(state => state.dishesCombine.loading);
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getDishes());
@@ -24,6 +26,11 @@ const MakeOrders = () => {
     const addDishHandler = type => {
         dispatch(addOrder(type));
     };
+
+    const createOrderFB = async (data) => {
+        await dispatch(createOrder(data))
+        history.push('/orders');
+    }
 
     return loading ? (<Spinner/>)
         : dishes && (
@@ -48,7 +55,7 @@ const MakeOrders = () => {
                         </div>
                     )
                 })}
-                <Button variant="contained" onClick={() => dispatch(createOrder(orders))}>Create order</Button>
+                <Button variant="contained" onClick={() => createOrderFB(orders)}>Create order</Button>
             </div>
 
         </>
