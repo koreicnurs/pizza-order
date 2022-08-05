@@ -18,7 +18,8 @@ const makeOrdersReducer = (state = initialState, action) => {
                         ...state.countOrders,
                         [action.payload.id]: {
                             title: action.payload.title,
-                            price: action.payload.price,
+                            price: Number(action.payload.price),
+                            allPrice: Number(action.payload.price),
                             count: 1
                         }
                     },
@@ -34,7 +35,8 @@ const makeOrdersReducer = (state = initialState, action) => {
                         ...state.countOrders,
                         [action.payload.id]: {
                             title: action.payload.title,
-                            price: action.payload.price,
+                            price: Number(action.payload.price),
+                            allPrice: Number(action.payload.price) + Number(action.payload.price * state.countOrders[action.payload.id].count),
                             count:  state.countOrders[action.payload.id].count + 1
                         }
                     },
@@ -54,6 +56,7 @@ const makeOrdersReducer = (state = initialState, action) => {
                     [action.payload.id]: {
                         title: state.countOrders[action.payload.id].title,
                         price: state.countOrders[action.payload.id].price,
+                        allPrice: action.payload.allPrice - action.payload.price,
                         count:  state.countOrders[action.payload.id].count - 1
                     }
                 },

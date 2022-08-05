@@ -1,12 +1,4 @@
-import {
-  DISHES_FAILURE,
-  DISHES_REQUEST,
-  DISHES_SUCCESS,
-  dishesFailure,
-  dishesRequest,
-  dishesSuccess
-} from "../actions/dishesActions";
-import axios from "axios";
+import {DISHES_FAILURE, DISHES_REQUEST, DISHES_SUCCESS,} from "../actions/dishesActions";
 
 const initialState = {
   dishes: null,

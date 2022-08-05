@@ -5,6 +5,7 @@ import {useEffect} from "react";
 import {getDishes} from "../../store/actions/dishesActions";
 import {addOrder, deleteOrder} from "../../store/actions/makeOrdersActions";
 import {Button} from "@mui/material";
+import {createOrder} from "../../store/actions/ordersActions";
 
 const MakeOrders = () => {
     const dispatch = useDispatch();
@@ -41,13 +42,15 @@ const MakeOrders = () => {
                         <div key={o}>
                             <p>{orders[o].title}</p>
                             <p>{orders[o].price}</p>
+                            <p>{orders[o].allPrice}</p>
                             <p>{orders[o].count}</p>
                             <Button variant="contained" onClick={() => deleteDish(orders[o], o)}>Delete</Button>
                         </div>
                     )
                 })}
+                <Button variant="contained" onClick={() => dispatch(createOrder(orders))}>Create order</Button>
             </div>
-            <Button variant="contained">Create Order</Button>
+
         </>
     );
 };
