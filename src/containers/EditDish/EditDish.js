@@ -4,6 +4,7 @@ import {useHistory, useRouteMatch} from "react-router-dom";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import {Button} from "@mui/material";
 import {getDish, putDish} from "../../store/actions/editDishActions";
+import "./EditDish.css";
 
 const EditDish = () => {
     const dispatch = useDispatch();
@@ -17,13 +18,13 @@ const EditDish = () => {
     }, [dispatch, match.params.id]);
 
     useEffect(() => {
-        setDish(eachDish)
+        setDish(eachDish);
     }, [eachDish]);
 
     const [dish, setDish] = useState(eachDish || {
         title: '',
         price: '',
-        image: ''
+        image: '',
     });
 
     const onInputChange = (e) => {
@@ -69,7 +70,7 @@ const EditDish = () => {
                 onChange={onInputChange}
                 placeholder="Image Link"
             />
-            <Button variant="contained" type='submit'>Edit Dish</Button>
+            <Button className='btn-edit' variant="contained" type='submit'>Edit Dish</Button>
         </form>
     );
 };

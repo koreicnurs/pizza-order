@@ -11,7 +11,9 @@ import {
 const initialState = {
     orders: [],
     loading: false,
-    error: null
+    error: null,
+    delivery: 150,
+    total: 0,
 };
 
 const ordersReducer = (state = initialState, action) => {

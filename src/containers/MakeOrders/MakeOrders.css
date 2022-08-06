@@ -1,0 +1,26 @@
+.make-orders {
+    display: flex;
+    margin: 50px;
+}
+
+.dishes-block {
+    width: auto;
+    margin-right: 100px;
+}
+
+.dish {
+    margin-bottom: 50px;
+}
+
+.order-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-card {
+    margin-bottom: 50px;
+}
+
+p.MuiTypography-root.MuiTypography-body2.typography-order.css-e784if-MuiTypography-root {
+    margin-bottom: 10px;
+}

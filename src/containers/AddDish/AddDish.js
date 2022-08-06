@@ -30,6 +30,7 @@ const AddDish = () => {
         await dispatch(createDish(dish));
         history.push('/');
     };
+
     return loading ? (<Spinner/>) : (
         <>
             <form onSubmit={onSubmitHandler}>
@@ -57,7 +58,6 @@ const AddDish = () => {
                     onChange={onInputChange}
                     placeholder="Street"
                 />
-                {/*<Button type={'submit'} btnType="Success">ORDER</Button>*/}
                 <Button variant="contained" type='submit'>Create Dish</Button>
             </form>
         </>
